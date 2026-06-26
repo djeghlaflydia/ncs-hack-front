@@ -13,7 +13,7 @@ interface BlueprintCardProps {
 
 export function BlueprintCard({ blueprint }: BlueprintCardProps) {
   return (
-    <div className="bg-white rounded-lg border border-[#E2E8F0] hover:border-[#0A5C36] transition-all hover:shadow-lg cursor-pointer overflow-hidden">
+    <div className="bg-white rounded-lg border border-[#E2E8F0] hover:border-[#0a5c3638] transition-all hover:shadow-lg cursor-pointer overflow-hidden">
       <div className="p-6">
         {/* Première ligne: Icon + Badge */}
         <div className="flex items-center justify-between mb-4">
