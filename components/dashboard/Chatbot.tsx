@@ -14,7 +14,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Bonjour ! Je suis votre assistant juridique NCS. Comment puis-je vous aider avec le droit des entreprises algérien ?",
+      text: "Bonjour ! Je suis votre assistant juridique. Comment puis-je vous aider avec le droit des entreprises algérien ?",
       sender: "bot",
       timestamp: new Date(),
     },

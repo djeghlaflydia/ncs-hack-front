@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
+  CheckSquare,
+  Receipt,
   FileText,
   Shield,
   Settings,
@@ -29,9 +32,19 @@ const sidebarItems = [
     href: "/dashboard/roadmaps",
   },
   {
+    title: "Task tracker",
+    icon: CheckSquare,
+    href: "/dashboard/tasks",
+  },
+  {
     title: "Documents",
     icon: FileText,
     href: "/dashboard/documents",
+  },
+  {
+    title: "Taxes",
+    icon: Receipt,
+    href: "/dashboard/taxes",
   },
   {
     title: "Settings",
@@ -45,9 +58,23 @@ export function Sidebar() {
 
   return (
     <aside className="flex h-full w-64 flex-col border-r border-[#E2E8F0] bg-white">
-      <div className="flex h-16 items-center border-b border-[#E2E8F0] px-6">
-        <span className="text-xl font-bold text-[#0A5C36]">NCS</span>
-        <span className="ml-1 text-xs text-[#64748B]">hack</span>
+      {/* Logo et titre */}
+      <div className="flex items-center gap-3 border-b border-[#E2E8F0] px-6 py-4">
+        <Image 
+          src="/logo.svg" 
+          alt="INSHAA Logo" 
+          width={48} 
+          height={48} 
+          className="w-12 h-12 flex-shrink-0"
+        />
+        <div className="flex flex-col">
+          <span className="text-xl font-bold text-[#0A5C36] leading-none">
+            INSHAA
+          </span>
+          <span className="text-[10px] text-[#1D283A] font-medium mt-0.5">
+            Building your startup legally
+          </span>
+        </div>
       </div>
 
       <nav className="flex-1 space-y-1 px-3 py-4">

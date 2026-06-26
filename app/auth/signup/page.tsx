@@ -18,7 +18,7 @@ export default function SignupPage() {
     <div className="min-h-screen flex items-center justify-center bg-[#F8FAFC]">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md border border-[#E2E8F0]">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-[#0A5C36]">NCS ⚖️</h1>
+          <h1 className="text-2xl font-bold text-[#0A5C36]">NCS</h1>
           <p className="text-[#64748B] mt-2">Créez votre compte</p>
         </div>
 

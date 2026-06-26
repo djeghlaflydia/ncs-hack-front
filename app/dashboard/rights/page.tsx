@@ -75,7 +75,7 @@ export default function RightsPage() {
               {/* Badge */}
               <div className="mb-3">
                 <span className="inline-flex items-center rounded-full bg-[#0A5C36]/10 px-3 py-1 text-sm font-medium text-[#0A5C36]">
-                  ⚖️ Know Your Rights
+                  Know Your Rights
                 </span>
               </div>
               
