@@ -9,11 +9,18 @@ interface BlueprintCardProps {
     readTime: string;
     tag: string;
   };
+  isSelected?: boolean;
 }
 
-export function BlueprintCard({ blueprint }: BlueprintCardProps) {
+export function BlueprintCard({ blueprint, isSelected }: BlueprintCardProps) {
   return (
-    <div className="bg-white rounded-lg border border-[#E2E8F0] hover:border-[#0a5c3638] transition-all hover:shadow-lg cursor-pointer overflow-hidden">
+    <div 
+      className={`bg-white rounded-lg border transition-all hover:shadow-lg cursor-pointer overflow-hidden ${
+        isSelected 
+          ? 'border-[#0A5C36] shadow-lg ring-2 ring-[#0A5C36]/20' 
+          : 'border-[#E2E8F0] hover:border-[#0A5C36]'
+      }`}
+    >
       <div className="p-6">
         {/* Première ligne: Icon + Badge */}
         <div className="flex items-center justify-between mb-4">
@@ -34,12 +41,15 @@ export function BlueprintCard({ blueprint }: BlueprintCardProps) {
                 />
               </svg>
             </div>
-            </div>
+            
             {/* Badge de catégorie */}
             <span className="inline-flex items-center rounded-full bg-[#0A5C36]/10 px-3 py-1 text-xs font-medium text-[#0A5C36]">
               {blueprint.tag}
             </span>
+          </div>
           
+          {/* Temps de lecture */}
+          <span className="text-[#64748B] text-xs">• {blueprint.readTime}</span>
         </div>
 
         {/* Titre */}
@@ -47,12 +57,12 @@ export function BlueprintCard({ blueprint }: BlueprintCardProps) {
           {blueprint.title}
         </h3>
         
-        {/* Sous-titre / Description */}
+        {/* Description */}
         <p className="text-sm text-[#64748B] mb-4 line-clamp-2">
           {blueprint.description}
         </p>
         
-        {/* Texte vert foncé en bas */}
+        {/* Texte vert en bas */}
         <div className="flex items-center text-[#0A5C36] font-medium text-sm">
           <span>Read Blueprint</span>
           <ArrowRight className="ml-1 h-4 w-4" />
