@@ -34,7 +34,7 @@ const sidebarItems = [
   {
     title: "Task tracker",
     icon: CheckSquare,
-    href: "/dashboard/tasks",
+    href: "/dashboard/tracker",
   },
   {
     title: "Documents",
