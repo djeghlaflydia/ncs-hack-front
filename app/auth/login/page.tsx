@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Eye, EyeOff, ArrowRight, Globe, ChevronDown, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -36,6 +38,8 @@ export default function LoginPage() {
     setTimeout(() => {
       setIsLoading(false);
       console.log("Login:", { email, password });
+      // Redirection vers /dashboard après connexion
+      router.push("/dashboard");
     }, 1500);
   };
 
@@ -100,8 +104,8 @@ export default function LoginPage() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* Bouton Sign Up */}
-          <Link href="/signup">
+          {/* Bouton Sign Up - Redirection vers /auth/signup */}
+          <Link href="/auth/signup">
             <Button 
               className="bg-[#0A5C36] hover:bg-[#064528] text-white rounded-full px-6 py-2 text-sm font-medium transition-all hover:shadow-lg"
             >
@@ -142,8 +146,8 @@ export default function LoginPage() {
 
           {/* Colonne droite - Formulaire de login */}
           <div className="w-full max-w-md mx-auto lg:mx-0">
-            <div className="bg-[#2A2A2A] rounded-2xl border border-[#3A3A3A] p-8">
-              <h2 className="text-xl font-semibold text-white mb-6">Login</h2>
+            <div className="bg-white rounded-2xl border border-[#ffffffc6] p-8">
+              <h2 className="text-xl font-semibold mb-6">Login</h2>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Email */}
@@ -156,7 +160,7 @@ export default function LoginPage() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="w-full rounded-xl border border-[#3A3A3A] bg-[#1F1F1F] px-4 py-3 text-sm text-white placeholder:text-[#64748B] focus:outline-none focus:border-[#0A5C36] focus:ring-2 focus:ring-[#0A5C36]/20 transition-all"
+                    className="w-full rounded-xl border border-[#3A3A3A]  px-4 py-3 text-sm placeholder:text-[#64748B] focus:outline-none focus:border-[#0A5C36] focus:ring-2 focus:ring-[#0A5C36]/20 transition-all"
                     required
                   />
                 </div>
@@ -172,7 +176,7 @@ export default function LoginPage() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      className="w-full rounded-xl border border-[#3A3A3A] bg-[#1F1F1F] px-4 py-3 pr-12 text-sm text-white placeholder:text-[#64748B] focus:outline-none focus:border-[#0A5C36] focus:ring-2 focus:ring-[#0A5C36]/20 transition-all"
+                      className="w-full rounded-xl border border-[#3A3A3A]  px-4 py-3 pr-12 text-sm placeholder:text-[#64748B] focus:outline-none focus:border-[#0A5C36] focus:ring-2 focus:ring-[#0A5C36]/20 transition-all"
                       required
                     />
                     <button
@@ -203,7 +207,7 @@ export default function LoginPage() {
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-[#0A5C36] hover:bg-[#064528] text-white rounded-xl py-3 text-sm font-semibold transition-all hover:shadow-lg flex items-center justify-center gap-2"
+                  className="w-full bg-[#0A5C36] hover:bg-[#064528] text-white rounded-xl py-5 text-sm font-semibold transition-all hover:shadow-lg flex items-center justify-center gap-2"
                 >
                   {isLoading ? (
                     <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -216,32 +220,18 @@ export default function LoginPage() {
                 </Button>
               </form>
 
-              {/* Sign up link */}
+              {/* Sign up link - Redirection vers /auth/signup */}
               <div className="mt-6 text-center">
                 <p className="text-sm text-[#94A3B8]">
                   Don't have an account?{" "}
                   <Link 
-                    href="/signup" 
+                    href="/auth/signup" 
                     className="text-[#0A5C36] hover:text-[#10B77F] font-semibold transition-colors"
                   >
                     Sign up
                   </Link>
                 </p>
               </div>
-            </div>
-
-            {/* Footer */}
-            <div className="mt-6 text-center">
-              <p className="text-xs text-[#64748B]">
-                By continuing, you agree to our{" "}
-                <Link href="/terms" className="text-[#0A5C36] hover:text-[#10B77F] hover:underline transition-colors">
-                  Terms of Service
-                </Link>{" "}
-                and{" "}
-                <Link href="/privacy" className="text-[#0A5C36] hover:text-[#10B77F] hover:underline transition-colors">
-                  Privacy Policy
-                </Link>
-              </p>
             </div>
           </div>
         </div>
