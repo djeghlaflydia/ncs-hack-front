@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { 
   Search, 
   Download, 
@@ -12,8 +14,10 @@ import {
   Building,
   FileCheck,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  Link as LinkIcon
 } from "lucide-react";
+import Link from "next/link";
 
 // Données des documents
 const documents = [
@@ -98,28 +102,51 @@ export default function DocumentsPage() {
   };
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <section>
-        <div className="mb-6">
-          {/* Badge */}
-          <div className="mb-3">
-            <span className="inline-flex items-center rounded-full bg-[#0A5C36]/10 px-3 py-1 text-sm font-medium text-[#0A5C36]">
+    <div className="space-y-6 p-6">
+      {/* Header avec badge, titre, sous-titre et bouton sur la même ligne */}
+      <div className="mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+          <div>
+            {/* Badge */}
+            <div className="mb-3">
+              <span className="inline-flex items-center rounded-full bg-[#0A5C36]/10 px-3 py-1 text-sm font-medium text-[#0A5C36]">
+                Documents
+              </span>
+            </div>
+            
+            {/* Titre */}
+            <h1 className="text-3xl font-bold text-[#1D283A] mb-2">
               Documents
-            </span>
+            </h1>
+            
+            {/* Sous-titre */}
+            <p className="text-[#64748B] text-lg">
+              Legally compliant templates optimized for the Algerian Startup Act.
+            </p>
           </div>
-          
-          {/* Titre */}
-          <h1 className="text-3xl font-bold text-[#1D283A] mb-2">
-            Documents
-          </h1>
-          
-          {/* Sous-titre */}
-          <p className="text-[#64748B] text-lg">
-            Legally compliant templates optimized for the Algerian Startup Act.
-          </p>
+
+          {/* Bouton AI doc scanner - aligné à droite */}
+          <div className="flex-shrink-0 mt-2 sm:mt-6">
+            <Link href="/dashboard/documents/docScanner">
+              <Button 
+                className="flex items-center gap-2 text-white rounded-full px-4 py-5 transition-all hover:shadow-lg hover:scale-105"
+                style={{
+                  background: "linear-gradient(to right, #10B77F, #0A5C36)",
+                }}
+              >
+                <Image 
+                  src="/icon.svg" 
+                  alt="Sid AI" 
+                  width={20} 
+                  height={20} 
+                  className="w-5 h-5"
+                />
+                <span className="text-sm font-medium">AI doc scanner</span>
+              </Button>
+            </Link>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Search + Filtres sur la même ligne */}
       <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">

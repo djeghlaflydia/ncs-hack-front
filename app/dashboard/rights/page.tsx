@@ -65,7 +65,7 @@ export default function RightsPage() {
   };
 
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-6  p-6">
       {/* Colonne de gauche - Liste des blueprints */}
       <div className={`${selectedBlueprint ? 'w-1/2' : 'w-full'} transition-all duration-300 overflow-y-auto`}>
         <div className="space-y-6 pr-2">

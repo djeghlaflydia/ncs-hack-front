@@ -215,7 +215,7 @@ export default function DocumentsPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6   p-6">
       {/* Header */}
       <section>
         <div className="mb-6">
